@@ -1,4 +1,5 @@
 * text=auto !eol
+/.htaccess -text
 application/.htaccess -text
 application/cache/.htaccess -text
 application/cache/index.html -text
@@ -414,6 +415,11 @@ application/libraries/Doctrine/Symfony/Component/Yaml/Unescaper.php -text
 application/libraries/Doctrine/Symfony/Component/Yaml/Yaml.php -text
 application/libraries/index.html -text
 application/logs/index.html -text
+application/models/Quantify/category.php -text
+application/models/Quantify/config.php -text
+application/models/Quantify/entry.php -text
+application/models/Quantify/permission.php -text
+application/models/Quantify/user.php -text
 application/models/index.html -text
 application/third_party/index.html -text
 application/views/index.html -text

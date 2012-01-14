@@ -17,6 +17,7 @@ application/config/routes.php -text
 application/config/smileys.php -text
 application/config/user_agents.php -text
 application/controllers/index.html -text
+application/controllers/tools.php -text
 application/controllers/welcome.php -text
 application/core/index.html -text
 application/errors/error_404.php -text
@@ -413,6 +414,11 @@ application/libraries/Doctrine/Symfony/Component/Yaml/Unescaper.php -text
 application/libraries/Doctrine/Symfony/Component/Yaml/Yaml.php -text
 application/libraries/index.html -text
 application/logs/index.html -text
+application/models/Entities/category.php -text
+application/models/Entities/config.php -text
+application/models/Entities/entry.php -text
+application/models/Entities/permission.php -text
+application/models/Entities/user.php -text
 application/models/index.html -text
 application/third_party/index.html -text
 application/views/index.html -text

@@ -2,8 +2,6 @@
 
 namespace models\Quantify;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * @Entity
  * @Table(name="category")
@@ -27,13 +25,6 @@ class Category
      * @Column(type="string",length=45,unique=true)
      */
     private $category_name;
-
-    public function __construct()
-    {
-
-        $this->users = new ArrayCollection();
-    }
-
 
     //no relation
     public function setCategoryId($category_id)

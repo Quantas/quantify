@@ -414,11 +414,6 @@ application/libraries/Doctrine/Symfony/Component/Yaml/Unescaper.php -text
 application/libraries/Doctrine/Symfony/Component/Yaml/Yaml.php -text
 application/libraries/index.html -text
 application/logs/index.html -text
-application/models/Entities/category.php -text
-application/models/Entities/config.php -text
-application/models/Entities/entry.php -text
-application/models/Entities/permission.php -text
-application/models/Entities/user.php -text
 application/models/index.html -text
 application/third_party/index.html -text
 application/views/index.html -text

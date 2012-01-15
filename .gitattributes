@@ -17,9 +17,11 @@ application/config/profiler.php -text
 application/config/routes.php -text
 application/config/smileys.php -text
 application/config/user_agents.php -text
+application/controllers/admin.php -text
 application/controllers/index.html -text
 application/controllers/tools.php -text
 application/controllers/welcome.php -text
+application/core/MY_Controller.php -text
 application/core/index.html -text
 application/errors/error_404.php -text
 application/errors/error_db.php -text
@@ -422,7 +424,10 @@ application/models/Quantify/permission.php -text
 application/models/Quantify/user.php -text
 application/models/index.html -text
 application/third_party/index.html -text
+application/views/admin.php -text
+application/views/banner_messages.php -text
 application/views/index.html -text
+application/views/template.php -text
 application/views/welcome_message.php -text
 assets/styles/test1.css -text
 assets/styles/test2.css -text

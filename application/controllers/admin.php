@@ -8,9 +8,20 @@ use models\Quantify\Config;
  */
 class Admin extends MY_Controller 
 {
+    public $title;
+    
     function __construct()
     {
         parent::__construct();
+        $this->title = anchor('admin/', 'Administration');
+    }
+    
+    function index()
+    {
+        $vars['css'] = get_dbconfig('style');
+        $vars['content_view'] = 'admin';
+        $vars['title'] = $this->title;
+        $this->load->view('template',$vars);
     }
     
     /**
@@ -23,6 +34,7 @@ class Admin extends MY_Controller
         $configs = $em->getRepository('models\Quantify\Config')->findAll();
 
         $tzlist = DateTimeZone::listIdentifiers();
+        
         
         $styles = array();
         $styleDir = opendir('assets/styles');
@@ -37,9 +49,9 @@ class Admin extends MY_Controller
         $vars['styles'] = $styles;
         $vars['configs'] = $configs;
         $vars['tzlist'] = $tzlist;
-        $vars['css'] = $em->getRepository('models\Quantify\Config')->findOneBy(array('config_key' => 'Style'))->getConfigValue();
-        $vars['content_view'] = 'admin';
-        $vars['title'] = 'Administration';
+        $vars['css'] = get_dbconfig('style');
+        $vars['content_view'] = 'config';
+        $vars['title'] = $this->title . ' | Config';
         $this->load->view('template',$vars);
     }
     

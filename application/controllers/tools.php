@@ -2,7 +2,7 @@
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Tools\SchemaValidator;
 
-class Tools extends CI_Controller
+class Tools extends MY_Controller
 {
     public function validator()
     {

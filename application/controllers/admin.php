@@ -51,7 +51,7 @@ class Admin extends MY_Controller
         $vars['tzlist'] = $tzlist;
         $vars['css'] = get_dbconfig('style');
         $vars['content_view'] = 'config';
-        $vars['title'] = $this->title . ' | Config';
+        $vars['title'] = $this->title . ' > Config';
         $this->load->view('template',$vars);
     }
     

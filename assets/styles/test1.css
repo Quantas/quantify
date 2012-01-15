@@ -67,6 +67,18 @@ body
     cursor: pointer;
 }
 
+#siteName
+{
+    font-size: 2em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
+#siteDesc
+{
+    font-size: 1.1em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
 #admin-config
 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -129,10 +141,17 @@ Admin
     background: #fff;
     margin: 25px;
     width: 480px;
+    padding:10px;
+    /*border: 2px solid #6678b1;*/
     border-collapse: collapse;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
+}
+
+hr
+{
+    border: 1px solid #6678b1;
 }
 
 /*
@@ -148,6 +167,17 @@ DISQUS
     padding: 10px;
     color: #039;
     cursor: pointer;
+}
+
+#disqus_head_disabled
+{
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #039;
 }
 
 #disqus

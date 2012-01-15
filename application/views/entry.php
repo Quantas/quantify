@@ -6,13 +6,18 @@
 
 <div id="entry_main">
     <div id="entry_head">
-        <?php echo $entry->getUser()->getUserDisplayName(); ?> | <?php echo convert_dbdate($entry->getEntryTimestamp()); ?> | <?php echo $entry->getCategory()->getCategoryName(); ?>
+        <?php echo $entry->getUser()->getUserDisplayName(); ?><br />
+        <?php echo convert_dbdate($entry->getEntryTimestamp()); ?><br />
+        <?php echo $entry->getCategory()->getCategoryName(); ?>
     </div>
     <div id="entry_content">
         <?php echo $entry->getEntryContent(); ?>
     </div>
 </div>
-
+<?php
+    if(get_dbconfig('disqusenabled') == '1')
+    {
+?>
 <div id="disqus_head">
     Comments
     <noscript>
@@ -45,4 +50,15 @@
   });
     });
 </script>
+<?php 
+    }
+    else
+    {
+?>
+<div id="disqus_head_disabled">
+    Comments are Disabled
+</div>
+<?php
+    }
+?>
 <br />

@@ -75,10 +75,3 @@ echo form_close();
 <tr><td colspan="2" style="text-align:right"><input type="submit" name="add" value="Add" class="button" /></td></tr>
 </table>
 <?php echo form_close(); ?>
-
-<?php $current = new DateTime('now', new DateTimeZone(get_dbconfig('timezone'))); 
-        echo $current->format('m/d/Y H:i:s'); 
-        $curtz = $current->getTimezone();
-        $curtztrans = $curtz->getTransitions();
-        echo '&nbsp;' . $curtztrans[0]['abbr'];
-        ?>

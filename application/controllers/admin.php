@@ -1,5 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 use models\Quantify\Config;
+use models\Quantify\Category;
 
 /**
  * Description of admin
@@ -25,7 +26,7 @@ class Admin extends MY_Controller
     }
     
     /**
-     * Display the configs
+     * Display the Configs
      */
     function config()
     {
@@ -56,6 +57,22 @@ class Admin extends MY_Controller
     }
     
     /**
+     * Display the Catagories
+     */
+    function categories()
+    {
+        $em = $this->doctrine->em;
+        
+        $categories = $em->getRepository('models\Quantify\Category')->findAll();
+        
+        $vars['categories'] = $categories;
+        $vars['css'] = get_dbconfig('style');
+        $vars['content_view'] = 'admin_category';
+        $vars['title'] = $this->title . ' > Categories';
+        $this->load->view('template',$vars);
+    }
+    
+    /**
      * Add a new config to the DB
      */
     function addConfig()
@@ -69,6 +86,21 @@ class Admin extends MY_Controller
         $em->flush();
         
         redirect('admin/config');
+    }
+    
+    /**
+     * Add a new category
+     */
+    function addCategory()
+    {
+        $em = $this->doctrine->em;
+        
+        $category = new Category;
+        $category->setCategoryName($this->input->post('name'));
+        $em->persist($category);
+        $em->flush();
+        
+        redirect('admin/categories');
     }
     
     /**

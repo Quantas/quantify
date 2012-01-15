@@ -12,12 +12,7 @@ class Entry extends MY_Controller
     {
         parent::__construct();
     }
-    
-    function index()
-    {
-        
-    }
-    
+
     function view($entry)
     {
         $em = $this->doctrine->em;

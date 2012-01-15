@@ -101,6 +101,16 @@ Entry
 }
 
 /*
+Nav
+*/
+#nav
+{
+    text-align:left;
+    margin-left: 25px;
+    font-size: 1.2em;
+}
+
+/*
 Admin
 */
 #admin_main

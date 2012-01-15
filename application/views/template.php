@@ -23,6 +23,9 @@
             <div>
                 <?php $this->load->view('header'); ?>
             </div>
+            <div>
+                <?php $this->load->view('nav'); ?>
+            </div>
         </div>
         <div id="container">
             <div id="titleDiv">

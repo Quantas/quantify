@@ -58,7 +58,7 @@ class Admin extends MY_Controller
     /**
      * Add a new config to the DB
      */
-    function add()
+    function addConfig()
     {
         $em = $this->doctrine->em;
         
@@ -74,7 +74,7 @@ class Admin extends MY_Controller
     /**
      * Update the configs in the DB
      */
-    function edit()
+    function editConfigs()
     {
         $em = $this->doctrine->em;
         

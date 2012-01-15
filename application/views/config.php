@@ -1,5 +1,5 @@
 <?php
-echo form_open('admin/edit');
+echo form_open('admin/editConfigs');
 ?>
 <table id="admin-config">
     <tr>
@@ -17,61 +17,102 @@ foreach ($configs as $config)
     if($config->getConfigKey() == 'Timezone')
     {
         echo $config->getConfigKey();
-        echo '</td><td>';
-        echo '<select id="'.$config->getConfigKey().'" name="'.$config->getConfigKey().'">';
-        foreach ($tzlist as $tz)
-        {
-            if($tz == $config->getConfigValue())
+        ?>
+        </td>
+        <td>
+            
+            <select id="<?php echo $config->getConfigKey(); ?>" name="<?php echo $config->getConfigKey(); ?>">
+            <?php
+            foreach ($tzlist as $tz)
             {
-                echo '<option value="' . $tz . '" SELECTED>' . $tz . '</option>';
+                if($tz == $config->getConfigValue())
+                {
+                    echo '<option value="' . $tz . '" SELECTED>' . $tz . '</option>';
+                }
+                else
+                {
+                    echo '<option value="' . $tz . '">' . $tz . '</option>';
+                }
             }
-            else
-            {
-                echo '<option value="' . $tz . '">' . $tz . '</option>';
-            }
-        }
-        echo '</select><br />';
-        echo '</td></tr>';
+            ?>
+            </select>
+        </td>
+    </tr>
+    <?php
     }
     else if($config->getConfigKey() == 'Style')
     {
         echo $config->getConfigKey();
-        echo '</td><td>';
-        echo '<select id="'.$config->getConfigKey().'" name="'.$config->getConfigKey().'">';
-        foreach($styles as $style)
-        {
-            if($style == $config->getConfigValue())
+        ?>
+        </td>
+        <td>
+            <select id="<?php echo $config->getConfigKey(); ?>" name="<?php echo $config->getConfigKey(); ?>">
+            <?php
+            foreach($styles as $style)
             {
-                echo '<option SELECTED>' . $style . '</option>';
+                if($style == $config->getConfigValue())
+                {
+                    echo '<option SELECTED value="' . $style . '">' . basename($style, '.css') . '</option>';
+                }
+                else
+                {
+                    echo '<option value="' . $style . '">' . basename($style, '.css') . '</option>';
+                }
             }
-            else
-            {
-                echo '<option>' . $style . '</option>';
-            }
-        }
-        echo '</select><br />';
-        echo '</td></tr>';
+            ?>
+            </select>
+        </td>
+    </tr>
+    <?php
     }
     else
     {
         echo $config->getConfigKey();
-        echo '</td><td>';
-        echo '<input id="' . $config->getConfigId() . '" name="'.$config->getConfigKey().'" type="text" value="' . $config->getConfigValue() . '" /><br />';
-        echo '</td></tr>';
+        ?>
+        </td>
+        <td>
+            <input id="<?php echo $config->getConfigId(); ?>" name="<?php echo $config->getConfigKey(); ?>" type="text" value="<?php echo $config->getConfigValue(); ?>" />
+        </td>
+    </tr>
+    <?php
     }
 }
-echo '<tr><td colspan="2" style="text-align:right"><input type="submit" name="save" value="Save" class="button" /></td></tr>';
-echo '</table>';
-echo form_close();
 ?>
+    <tr>
+        <td colspan="2" style="text-align:right">
+            <input type="submit" name="save" value="Save" class="button" />
+        </td>
+    </tr>
+</table>
+<?php echo form_close(); ?>
 
-<?php echo form_open('admin/add'); ?>
+<?php echo form_open('admin/addConfig'); ?>
 <table id="admin-config">
-    <tr><th colspan="2">Add New Config</th></tr>
-    <tr><td><label for="key">Key</label></td>
-<td><?php echo form_input('key',set_value('key')); ?></td></tr>
-    <tr><td><label for="value">Value</label></td>
-<td><?php echo form_input('value',set_value('value')); ?></td></tr>
-<tr><td colspan="2" style="text-align:right"><input type="submit" name="add" value="Add" class="button" /></td></tr>
+    <tr>
+        <th colspan="2">
+            Add New Config
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <label for="key">Key</label>
+        </td>
+        <td>
+            <?php echo form_input('key',set_value('key')); ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="value">Value</label>
+        </td>
+        <td>
+            <?php echo form_input('value',set_value('value')); ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align:right">
+            <input type="submit" name="add" value="Add" class="button" />
+        </td>
+    </tr>
 </table>
 <?php echo form_close(); ?>

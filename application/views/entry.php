@@ -27,12 +27,9 @@
 <div id="disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = '<?php echo get_dbconfig('disqusshortname'); ?>'; 
         var disqus_identifier = '<?php echo $entry->getEntryId(); ?>';
         var disqus_developer = <?php echo get_dbconfig('disqusdev'); ?>;
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

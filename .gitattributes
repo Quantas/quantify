@@ -28,7 +28,9 @@ application/errors/error_db.php -text
 application/errors/error_general.php -text
 application/errors/error_php.php -text
 application/errors/index.html -text
+application/helpers/dbconfig_helper.php -text
 application/helpers/index.html -text
+application/helpers/utility_helper.php -text
 application/hooks/index.html -text
 application/index.html -text
 application/language/english/index.html -text

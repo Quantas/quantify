@@ -5,7 +5,7 @@
             <?php echo get_dbconfig('SiteName');
             ?>
         </title>
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/styles/<?php echo $css; ?>" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/styles/<?php echo $css; ?>.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/lytebox/lytebox.css" type="text/css" media="screen" />
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/jquery/jquery.qtip.min.js"></script>
@@ -18,14 +18,15 @@
         </script>
 </head>
 <body>
-    <div id="shell">
-        <div id="header">
+    <div id="header">
             <div>
                 <?php $this->load->view('header'); ?>
             </div>
-            <div>
-                <?php $this->load->view('nav'); ?>
-            </div>
+        </div>
+    <div id="shell">
+        
+        <div>
+            <?php $this->load->view('nav'); ?>
         </div>
         <div id="container">
             <div id="titleDiv">

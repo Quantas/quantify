@@ -28,6 +28,9 @@ class Doctrine
  
         $symfonyClassLoader = new \Doctrine\Common\ClassLoader('Symfony', APPPATH . 'libraries/Doctrine');
         $symfonyClassLoader->register();
+        
+        $extensionsClassLoader = new \Doctrine\Common\ClassLoader('DoctrineExtensions', APPPATH . 'libraries/Doctrine');
+        $extensionsClassLoader->register();
  
         // Choose caching method based on application mode (ENVIRONMENT is defined in /index.php)
         if (ENVIRONMENT == 'development') {

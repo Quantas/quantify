@@ -52,11 +52,11 @@ foreach ($configs as $config)
             {
                 if($style == $config->getConfigValue())
                 {
-                    echo '<option SELECTED value="' . $style . '">' . basename($style, '.css') . '</option>';
+                    echo '<option SELECTED value="' . basename($style, '.css') . '">' . basename($style, '.css') . '</option>';
                 }
                 else
                 {
-                    echo '<option value="' . $style . '">' . basename($style, '.css') . '</option>';
+                    echo '<option value="' . basename($style, '.css') . '">' . basename($style, '.css') . '</option>';
                 }
             }
             ?>

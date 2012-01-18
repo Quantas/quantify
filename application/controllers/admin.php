@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 use models\Quantify\Config;
 use models\Quantify\Category;
+use DoctrineExtensions\Paginate\Paginate;
 
 /**
  * Description of admin
@@ -22,7 +23,7 @@ class Admin extends MY_Controller
         $vars['css'] = get_dbconfig('style');
         $vars['content_view'] = 'admin';
         $vars['title'] = $this->title;
-        $this->load->view('template',$vars);
+        $this->load->view(get_dbconfig('style'),$vars);
     }
     
     /**
@@ -53,11 +54,11 @@ class Admin extends MY_Controller
         $vars['css'] = get_dbconfig('style');
         $vars['content_view'] = 'config';
         $vars['title'] = $this->title . ' > Config';
-        $this->load->view('template',$vars);
+        $this->load->view(get_dbconfig('style'),$vars);;
     }
     
     /**
-     * Display the Catagories
+     * Display the Categories
      */
     function categories()
     {
@@ -69,7 +70,42 @@ class Admin extends MY_Controller
         $vars['css'] = get_dbconfig('style');
         $vars['content_view'] = 'admin_category';
         $vars['title'] = $this->title . ' > Categories';
-        $this->load->view('template',$vars);
+        $this->load->view(get_dbconfig('style'),$vars);
+    }
+    
+    /**
+     * Display the entries
+     * 
+     * Pagination is a bitch
+     */
+    function entries($offset = 0)
+    {
+        $limitPerPage = 10;
+        
+        $em = $this->doctrine->em;
+        $query = $em->createQuery("SELECT e.entry_id, e.entry_title, e.entry_timestamp, c.category_name, u.user_display_name FROM models\Quantify\Entry e JOIN e.category c JOIN e.user u");
+
+        $count = Paginate::getTotalQueryResults($query);
+        $paginateQuery = Paginate::getPaginateQuery($query, $offset, $limitPerPage);
+        $entries = $paginateQuery->getResult();
+
+        if ($count > $limitPerPage) 
+        {
+            // PAGINATION
+            $this->load->library('pagination');
+            $config['base_url'] = base_url() . "admin/entries";
+            $config['total_rows'] = $count;
+            $config['per_page'] = $limitPerPage;
+            $config['uri_segment'] = 3;
+            $this->pagination->initialize($config);
+            $vars['pagination'] = $this->pagination->create_links();
+        }
+        
+        $vars['entries'] = $entries;
+        $vars['css'] = get_dbconfig('style');
+        $vars['content_view'] = 'admin_entries';
+        $vars['title'] = $this->title . ' > Entries';
+        $this->load->view(get_dbconfig('style'),$vars);
     }
     
     /**
@@ -132,5 +168,15 @@ class Admin extends MY_Controller
             }
         }
         redirect('admin/config');
+    }
+    
+    function editEntry($id = null)
+    {
+        
+    }
+    
+    function deleteEntry($id = null)
+    {
+        
     }
 }

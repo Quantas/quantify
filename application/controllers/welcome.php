@@ -8,6 +8,6 @@ class Welcome extends MY_Controller
         $vars['css'] = get_dbconfig('style');
         $vars['content_view'] = 'home';
         $vars['title'] = 'Home';
-        $this->load->view('template',$vars);
+        $this->load->view(get_dbconfig('style'),$vars);
     }
 }

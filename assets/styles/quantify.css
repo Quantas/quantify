@@ -1,21 +1,23 @@
 /* 
-    Document   : test1
+    Document   : Quantify CSS
     Created on : Jan 14, 2012, 5:28:04 PM
     Author     : Quantas
     Description:
         Purpose of the stylesheet follows.
 */
 
-root { 
+root 
+{ 
     display: block;
 }
 
 body 
 {
         background-color: #fff;
-        margin: 40px;
         font: 13px/20px normal Helvetica, Arial, sans-serif;
         color: #4F5155;
+        background-image: url('/quantify/assets/images/header.jpg');
+        background-position: center;
 }
 
 #shell
@@ -27,6 +29,7 @@ body
 
 #titleDiv
 {
+    background-color: #fff;
     font-size: 1.2em;
     color: #039;
     text-align:left;
@@ -35,22 +38,33 @@ body
 
 #header
 {
+    color: #fff;
     text-align:right;
+    height: 60px;
+    padding-top: 40px;
 }
 
 #container
 {
-        margin: 10px;
+        background-color: #fff;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 2px;
+        padding-top: 2px;
+        padding-bottom: 2px;
         border: 1px solid #D0D0D0;
-        width: 100%;
+        width: 796px;
         text-align: center;
         -webkit-box-shadow: 0 0 8px #D0D0D0;
 }
 
 #bottom
 {
+    background-color: #fff;
     font-size: 0.7em;
     text-align: center;
+    border: 1px solid #D0D0D0;
+    -webkit-box-shadow: 0 0 8px #D0D0D0;
 }
 
 .button
@@ -71,12 +85,18 @@ body
 {
     font-size: 2em;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    width: 796px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #siteDesc
 {
     font-size: 1.1em;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    width: 796px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*
@@ -84,6 +104,7 @@ Entry
 */
 #entry_content
 {
+    background-color: #fff;
     width: 750px;
     margin-left: auto;
     margin-right: auto;
@@ -105,9 +126,47 @@ Nav
 */
 #nav
 {
+    background-color: #fff;
     text-align:left;
-    margin-left: 25px;
     font-size: 1.2em;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 10px;
+    border: 1px solid #D0D0D0;
+    width: 796px;
+    -webkit-box-shadow: 0 0 8px #D0D0D0;
+}
+
+#nav ul
+{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+
+#nav li
+{
+    float:left;
+}
+
+#nav a:link, #nav a:visited
+{
+    display:block;
+    width:120px;
+    font-weight:bold;
+    color:#4F5155;
+    background-color:#ffffff;
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+    border-right: 1px #cccccc solid;
+}
+
+#nav a:hover, #nav a:active
+{
+    background-color:#cccccc;
 }
 
 /*
@@ -121,7 +180,6 @@ Admin
     margin: 25px;
     width: 480px;
     padding:10px;
-    /*border: 2px solid #6678b1;*/
     border-collapse: collapse;
     text-align: left;
     margin-left: auto;
@@ -197,4 +255,31 @@ DISQUS
     margin-right:auto;
     border: 1px solid #ccc;
     padding: 10px;
+}
+
+/**
+ENTRIES
+*/
+#entries-entry
+{
+    width: 700px;
+    border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 0 2px #D0D0D0;
+    padding: 4px;
+}
+
+#entries-title
+{
+    text-align: left;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 1.1em;
+}
+
+#entries-text
+{
+    border-top: 1px #ccc solid;
+    text-align: left;
 }

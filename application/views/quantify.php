@@ -5,6 +5,7 @@
             <?php echo get_dbconfig('SiteName');
             ?>
         </title>
+        <?php echo link_tag('feed', 'alternate', 'application/rss+xml', get_dbconfig('SiteName') . ' RSS Feed'); ?>
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/styles/<?php echo $css; ?>.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/lytebox/lytebox.css" type="text/css" media="screen" />
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/jquery/jquery.min.js"></script>

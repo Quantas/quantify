@@ -20,6 +20,7 @@ application/config/user_agents.php -text
 application/controllers/Test.php -text
 application/controllers/admin.php -text
 application/controllers/entry.php -text
+application/controllers/feed.php -text
 application/controllers/index.html -text
 application/controllers/test.php -text
 application/controllers/tools.php -text
@@ -495,6 +496,8 @@ application/views/home.php -text
 application/views/index.html -text
 application/views/nav.php -text
 application/views/quantify.php -text
+application/views/rss.php -text
+assets/images/header.jpg -text
 assets/styles/quantify.css -text
 /index.php -text
 /license.txt -text

@@ -38,6 +38,11 @@ class Entry extends MY_Controller
             $config['total_rows'] = $count;
             $config['per_page'] = $limitPerPage;
             $config['uri_segment'] = 3;
+            //Pagination Style
+            $config['prev_link'] = 'Newer';
+            $config['next_link'] = 'Older';
+            $config['anchor_class'] = 'class="paginate-page"';
+            //init pagination
             $this->pagination->initialize($config);
             $vars['pagination'] = $this->pagination->create_links();
         }

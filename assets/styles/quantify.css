@@ -308,6 +308,7 @@ Pagination
     padding-left: 6px;
     padding-right: 6px;
     display: inline-block;
+    background: #CCC;
 }
 
 .paginate-page

@@ -491,6 +491,7 @@ application/third_party/index.html -text
 application/views/admin.php -text
 application/views/admin_category.php -text
 application/views/admin_entries.php -text
+application/views/admin_users.php -text
 application/views/banner_messages.php -text
 application/views/config.php -text
 application/views/entries.php -text

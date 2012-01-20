@@ -25,7 +25,6 @@
             </div>
         </div>
     <div id="shell">
-        
         <div>
             <?php $this->load->view('nav'); ?>
         </div>

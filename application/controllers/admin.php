@@ -112,6 +112,22 @@ class Admin extends MY_Controller
         $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
     
+   /**
+    * Display the users
+    */
+    function users()
+    {
+        $em = $this->doctrine->em;
+        
+        $users = $em->getRepository('models\Quantify\User')->findAll();
+        
+        $vars['users'] = $users;
+        $vars['dbconfigs'] = getConfigArray();
+        $vars['content_view'] = 'admin_users';
+        $vars['title'] = $this->title . ' > Users';
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
+    }
+    
     /**
      * Add a new config to the DB
      */

@@ -2,5 +2,6 @@
     <?php echo anchor('admin/config', 'Config'); ?><br /><hr />
     <?php echo anchor('admin/entries', 'Entries'); ?><br /><hr />
     <?php echo anchor('admin/categories', 'Catagories'); ?><br /><hr />
-    <?php echo anchor('admin/users', 'Users'); ?><br />
+    <?php echo anchor('admin/users', 'Users'); ?><br /><hr />
+    <?php echo anchor('admin/permissions', 'Permissions'); ?><br />
 </div>

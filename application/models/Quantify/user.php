@@ -52,7 +52,12 @@ class User
         $this->categories = new ArrayCollection();
     }
 
-
+    protected function _encrypt_password($value) 
+    {
+        $salt = 'TESTSALTTEST';
+        return md5($salt . $value);
+    }
+    
     //no relation
     public function setUserId($user_id)
     {
@@ -109,7 +114,7 @@ class User
     //no relation
     public function setUserPassword($user_password)
     {
-        $this->user_password = $user_password;
+        $this->user_password = $this->_encrypt_password($user_password);
         return $this; // fluent interface
     }
 

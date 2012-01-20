@@ -9,6 +9,7 @@
             <?php foreach($entries as $entry): ?>
                 <item>
                     <title><?php echo $entry['entry_title']; ?></title>
+                    <author><?php echo $entry['user_display_name']; ?></author>
                     <link><?php echo site_url('entry/view/' . $entry['entry_id']) ?></link>
                     <guid><?php echo site_url('entry/view/' . $entry['entry_id']) ?></guid>
                     <description><?php echo character_limiter($entry['content'], 200); ?></description>

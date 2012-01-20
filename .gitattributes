@@ -19,6 +19,7 @@ application/config/smileys.php -text
 application/config/user_agents.php -text
 application/controllers/Test.php -text
 application/controllers/admin.php -text
+application/controllers/auth.php -text
 application/controllers/entry.php -text
 application/controllers/error.php -text
 application/controllers/feed.php -text
@@ -33,6 +34,7 @@ application/errors/error_db.php -text
 application/errors/error_general.php -text
 application/errors/error_php.php -text
 application/errors/index.html -text
+application/helpers/account_helper.php -text
 application/helpers/dbconfig_helper.php -text
 application/helpers/index.html -text
 application/helpers/utility_helper.php -text
@@ -480,6 +482,7 @@ application/libraries/index.html -text
 application/logs/index.html -text
 application/models/Quantify/category.php -text
 application/models/Quantify/config.php -text
+application/models/Quantify/current_user.php -text
 application/models/Quantify/entry.php -text
 application/models/Quantify/permission.php -text
 application/models/Quantify/user.php -text
@@ -495,6 +498,7 @@ application/views/entry.php -text
 application/views/header.php -text
 application/views/home.php -text
 application/views/index.html -text
+application/views/login_form.php -text
 application/views/nav.php -text
 application/views/not_found.php -text
 application/views/quantify.php -text

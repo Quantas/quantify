@@ -6,7 +6,7 @@ use DoctrineExtensions\Paginate\Paginate;
  *
  * @author Quantas
  */
-class Entry extends MY_Controller
+class Entry extends CI_Controller
 {
     
     function __construct()

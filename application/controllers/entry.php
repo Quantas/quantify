@@ -48,10 +48,10 @@ class Entry extends CI_Controller
         }
         
         $vars['entries'] = $entries;
-        $vars['css'] = get_dbconfig('style');
+        $vars['dbconfigs'] = getConfigArray();
         $vars['content_view'] = 'entries';
         $vars['title'] = 'Home';
-        $this->load->view(get_dbconfig('style'),$vars);
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
     
     function view($entry)
@@ -60,9 +60,9 @@ class Entry extends CI_Controller
         $entry = $em->getRepository('models\Quantify\Entry')->findOneBy(array('entry_id' => $entry));
         
         $vars['entry'] = $entry;
-        $vars['css'] = get_dbconfig('style');
+        $vars['dbconfigs'] = getConfigArray();
         $vars['content_view'] = 'entry';
         $vars['title'] = anchor('/', 'Home') . ' > ' . $entry->getEntryTitle();
-        $this->load->view(get_dbconfig('style'),$vars);
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
 }

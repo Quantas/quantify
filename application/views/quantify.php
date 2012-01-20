@@ -2,11 +2,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>
-            <?php echo get_dbconfig('SiteName');
+            <?php echo $dbconfigs['SiteName'];
             ?>
         </title>
-        <?php echo link_tag('feed', 'alternate', 'application/rss+xml', get_dbconfig('SiteName') . ' RSS Feed'); ?>
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/styles/<?php echo $css; ?>.css" />
+        <?php echo link_tag('feed', 'alternate', 'application/rss+xml', $dbconfigs['SiteName'] . ' RSS Feed'); ?>
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/styles/<?php echo $dbconfigs['Style']; ?>.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/lytebox/lytebox.css" type="text/css" media="screen" />
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/jquery/jquery.qtip.min.js"></script>

@@ -1,11 +1,11 @@
 <div id="sitename">
     <?php
-    echo get_dbconfig('SiteName');
+    echo $dbconfigs['SiteName'];
     ?>
 </div>
 <br />
 <div id="sitedesc">
     <?php
-    echo get_dbconfig('SiteDesc');
+    echo $dbconfigs['SiteDesc'];
     ?>
 </div>

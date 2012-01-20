@@ -20,10 +20,10 @@ class Admin extends MY_Controller
     
     function index()
     {
-        $vars['css'] = get_dbconfig('style');
+        $vars['dbconfigs'] = getConfigArray();
         $vars['content_view'] = 'admin';
         $vars['title'] = $this->title;
-        $this->load->view(get_dbconfig('style'),$vars);
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
     
     /**
@@ -51,10 +51,10 @@ class Admin extends MY_Controller
         $vars['styles'] = $styles;
         $vars['configs'] = $configs;
         $vars['tzlist'] = $tzlist;
-        $vars['css'] = get_dbconfig('style');
+        $vars['dbconfigs'] = getConfigArray();
         $vars['content_view'] = 'config';
         $vars['title'] = $this->title . ' > Config';
-        $this->load->view(get_dbconfig('style'),$vars);;
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
     
     /**
@@ -67,10 +67,10 @@ class Admin extends MY_Controller
         $categories = $em->getRepository('models\Quantify\Category')->findAll();
         
         $vars['categories'] = $categories;
-        $vars['css'] = get_dbconfig('style');
+        $vars['dbconfigs'] = getConfigArray();
         $vars['content_view'] = 'admin_category';
         $vars['title'] = $this->title . ' > Categories';
-        $this->load->view(get_dbconfig('style'),$vars);
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
     
     /**
@@ -106,10 +106,10 @@ class Admin extends MY_Controller
         }
         
         $vars['entries'] = $entries;
-        $vars['css'] = get_dbconfig('style');
+        $vars['dbconfigs'] = getConfigArray();
         $vars['content_view'] = 'admin_entries';
         $vars['title'] = $this->title . ' > Entries';
-        $this->load->view(get_dbconfig('style'),$vars);
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
     
     /**

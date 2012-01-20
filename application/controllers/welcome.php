@@ -5,9 +5,9 @@ class Welcome extends MY_Controller
 
     public function index()
     {
-        $vars['css'] = get_dbconfig('style');
+        $vars['dbconfigs'] = getConfigArray();
         $vars['content_view'] = 'home';
         $vars['title'] = 'Home';
-        $this->load->view(get_dbconfig('style'),$vars);
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
 }

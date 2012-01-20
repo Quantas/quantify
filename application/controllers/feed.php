@@ -10,10 +10,12 @@ class Feed extends CI_Controller
     
     public function index()
     {
-        $data['feed_name'] = get_dbconfig('SiteName');  
+        $dbconfigs = getConfigArray();
+        
+        $data['feed_name'] = $dbconfigs['SiteName'];  
         $data['encoding'] = 'utf-8';  
         $data['feed_url'] = base_url() . 'Feed';  
-        $data['page_description'] = get_dbconfig('SiteDesc');  
+        $data['page_description'] = $dbconfigs['SiteDesc'];  
         $data['page_language'] = 'en-en';  
         $data['creator_email'] = 'mail@me.com';  
         $data['entries'] = $this->getEntries();  

@@ -16,10 +16,12 @@ class Test extends CI_Controller
         $em->persist($cat);
         */
         
+        $dbconfigs = getConfigArray();
+        
         $entry = new Entry;
         $entry->setEntryTitle('Test Entry 2');
         $entry->setEntryContent('My Test Article');
-        $entry->setEntryTimestamp(new DateTime('now', new DateTimeZone(get_dbconfig('timezone'))));
+        $entry->setEntryTimestamp(new DateTime('now', new DateTimeZone($dbconfigs['Timezone'])));
         $entry->setUser($em->getRepository('models\Quantify\User')->findOneBy(array('user_name' => 'quantas')));
         $entry->setCategory($em->getRepository('models\Quantify\Category')->findOneBy(array('category_name' => 'First Category')));
         $em->persist($entry);

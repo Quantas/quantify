@@ -20,10 +20,10 @@ class Auth extends CI_Controller
     
     public function login()
     {
-        $vars['css'] = get_dbconfig('style');
+        $vars['dbconfigs'] = getConfigArray();
         $vars['content_view'] = 'login_form';
         $vars['title'] = 'Login';
-        $this->load->view(get_dbconfig('style'),$vars);
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
     
     public function logout()

@@ -15,7 +15,7 @@
     </div>
 </div>
 <?php
-    if(get_dbconfig('disqusenabled') == '1')
+    if($dbconfigs['DisqusEnabled'] == '1')
     {
 ?>
 <div id="disqus_head">
@@ -27,9 +27,9 @@
 <div id="disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-        var disqus_shortname = '<?php echo get_dbconfig('disqusshortname'); ?>'; 
+        var disqus_shortname = '<?php echo $dbconfigs['DisqusShortname']; ?>'; 
         var disqus_identifier = '<?php echo $entry->getEntryId(); ?>';
-        var disqus_developer = <?php echo get_dbconfig('disqusdev'); ?>;
+        var disqus_developer = <?php echo $dbconfigs['DisqusDev']; ?>;
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

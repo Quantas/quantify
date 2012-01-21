@@ -8,7 +8,7 @@ use models\Quantify\User;
 use models\Quantify\Entry;
 use models\Quantify\Category;
 
-class Tools extends MY_Controller
+class Tools extends CI_Controller
 {
     public function validator()
     {

@@ -482,12 +482,6 @@ application/libraries/Doctrine/Symfony/Component/Yaml/Yaml.php -text
 application/libraries/MY_Form_validation.php -text
 application/libraries/index.html -text
 application/logs/index.html -text
-application/models/Quantify/category.php -text
-application/models/Quantify/config.php -text
-application/models/Quantify/current_user.php -text
-application/models/Quantify/entry.php -text
-application/models/Quantify/permission.php -text
-application/models/Quantify/user.php -text
 application/models/index.html -text
 application/third_party/index.html -text
 application/views/admin.php -text

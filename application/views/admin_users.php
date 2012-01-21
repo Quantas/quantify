@@ -28,7 +28,16 @@ foreach($users as $user)
             <?php echo $user->getPermission()->getPermissionName(); ?>
         </td>
         <td>
-            <?php echo $user->getEntries()->count(); ?> 
+            <?php 
+                try 
+                {
+                    echo $user->getEntries()->count(); 
+                }
+                catch(Exception $e)
+                {
+                    echo '0';
+                }
+            ?> 
         </td>
     </tr>
 <?php
@@ -36,6 +45,7 @@ foreach($users as $user)
 ?>
 </table>
 <?php echo form_open('admin/addUser'); ?>
+<?php echo validation_errors('<p class="error">','</p>'); ?>
 <table id="admin-config">
     <tr>
         <th colspan="2">
@@ -63,7 +73,7 @@ foreach($users as $user)
             <label for="password">Password</label>
         </td>
         <td>
-            <?php echo form_input('password',set_value('password')); ?>
+            <?php echo form_password('password',set_value('password')); ?>
         </td>
     </tr>
     <tr>
@@ -71,7 +81,15 @@ foreach($users as $user)
             <label for="password-again">Password Again</label>
         </td>
         <td>
-            <?php echo form_input('password-again',set_value('password-again')); ?>
+            <?php echo form_password('password-again',set_value('password-again')); ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="email">Email Address</label>
+        </td>
+        <td>
+            <?php echo form_input('email',set_value('email')); ?>
         </td>
     </tr>
     <tr>

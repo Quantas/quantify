@@ -46,6 +46,12 @@ class User
      */
     private $user_display_name;
 
+    /**
+     *
+     * @Column(type="string",length=45,unique=true)
+     */
+    private $user_email;
+    
     public function __construct()
     {
 
@@ -135,6 +141,19 @@ class User
     public function getUserDisplayName()
     {
         return $this->user_display_name;
+    }
+    
+    //no relation
+    public function setUserEmail($user_email)
+    {
+        $this->user_email = $user_email;
+        return $this; // fluent interface
+    }
+
+    //no relation
+    public function getUserEmail()
+    {
+        return $this->user_email;
     }
 
     public function addCategory(Category $category)

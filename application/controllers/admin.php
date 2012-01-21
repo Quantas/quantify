@@ -1,6 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 use models\Quantify\Config;
 use models\Quantify\Category;
+use models\Quantify\User;
+use models\Quantify\Permission;
 use DoctrineExtensions\Paginate\Paginate;
 
 /**
@@ -16,6 +18,7 @@ class Admin extends MY_Controller
     {
         parent::__construct();
         $this->title = anchor('admin/', 'Administration');
+        $this->load->library('form_validation');
     }
     
     function index()
@@ -187,7 +190,45 @@ class Admin extends MY_Controller
                 $em->flush();
             }
         }
-        redirect('admin/config');
+        redirect('admin/configs');
+    }
+    
+    public function addUser() 
+    {
+        if ($this->_submit_validate() === FALSE) 
+        {
+            $this->users();
+            return;
+        }
+
+        $em = $this->doctrine->em;
+        
+        $u = new User();
+        $u->setUserName($this->input->post('username'));
+        $u->setUserPassword($this->input->post('password'));
+        $u->setUserEmail($this->input->post('email'));
+        $u->setuserDisplayName($this->input->post('displayname'));
+        $u->setPermission($em->getRepository('models\Quantify\Permission')->findOneBy(array('permission_name' => 'Moderator')));
+        $em->persist($u);
+        $em->flush();
+        
+        redirect('admin/users');
+    }
+	
+    private function _submit_validate() 
+    {
+        // validation rules
+        $this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric|min_length[6]|max_length[12]|unique[models\Quantify\User.username]');
+
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|max_length[12]');
+
+        $this->form_validation->set_rules('password-again', 'Confirm Password', 'required|matches[password]');
+
+        $this->form_validation->set_rules('displayname', 'Display Name', 'required|max_length[255]');
+
+        $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email|unique[models\Quantify\User.email]');
+
+        return $this->form_validation->run();	
     }
     
     function editEntry($id = null)

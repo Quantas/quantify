@@ -25,6 +25,7 @@ application/controllers/error.php -text
 application/controllers/feed.php -text
 application/controllers/index.html -text
 application/controllers/test.php -text
+application/controllers/theme.php -text
 application/controllers/tools.php -text
 application/controllers/welcome.php -text
 application/core/MY_Controller.php -text
@@ -478,6 +479,7 @@ application/libraries/Doctrine/Symfony/Component/Yaml/LICENSE -text
 application/libraries/Doctrine/Symfony/Component/Yaml/Parser.php -text
 application/libraries/Doctrine/Symfony/Component/Yaml/Unescaper.php -text
 application/libraries/Doctrine/Symfony/Component/Yaml/Yaml.php -text
+application/libraries/MY_Form_validation.php -text
 application/libraries/index.html -text
 application/logs/index.html -text
 application/models/Quantify/category.php -text
@@ -494,6 +496,7 @@ application/views/admin_entries.php -text
 application/views/admin_users.php -text
 application/views/banner_messages.php -text
 application/views/config.php -text
+application/views/edit_style.php -text
 application/views/entries.php -text
 application/views/entry.php -text
 application/views/header.php -text

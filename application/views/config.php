@@ -61,6 +61,7 @@ foreach ($configs as $config)
             }
             ?>
             </select>
+            <?php echo anchor('theme/view' , 'Edit'); ?>
         </td>
     </tr>
     <?php

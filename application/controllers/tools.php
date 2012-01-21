@@ -29,9 +29,17 @@ class Tools extends CI_Controller
     
     public function setupDatabase()
     {
-        $this->_publishSchema();
-        $this->_addDefaultData();
-        echo 'Good to go';
+        try
+        {
+            $this->_publishSchema();
+            $this->_addDefaultData();
+            echo 'Good to go';
+        }
+        catch(Exception $e)
+        {
+            die($e->getMessage());
+        }
+        
     }
     
     private function _publishSchema()

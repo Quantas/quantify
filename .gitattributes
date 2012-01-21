@@ -499,6 +499,7 @@ application/views/config.php -text
 application/views/edit_style.php -text
 application/views/entries.php -text
 application/views/entry.php -text
+application/views/entry_editor.php -text
 application/views/header.php -text
 application/views/home.php -text
 application/views/index.html -text
@@ -553,6 +554,19 @@ resources/jquery/lytebox/images/close_green.png -text
 resources/jquery/lytebox/images/close_grey.png -text
 resources/jquery/lytebox/images/close_red.png -text
 resources/jquery/lytebox/images/loading.gif -text
+resources/jwysiwyg/jquery.wysiwyg.bg.png -text
+resources/jwysiwyg/jquery.wysiwyg.css -text
+resources/jwysiwyg/jquery.wysiwyg.gif -text
+resources/jwysiwyg/jquery.wysiwyg.jpg -text
+resources/jwysiwyg/jquery.wysiwyg.js -text
+resources/jwysiwyg/jquery.wysiwyg.no-alpha.gif -text
+resources/jwysiwyg/wysiwyg.colorpicker.js -text
+resources/jwysiwyg/wysiwyg.cssWrap.js -text
+resources/jwysiwyg/wysiwyg.fileManager.css -text
+resources/jwysiwyg/wysiwyg.fileManager.js -text
+resources/jwysiwyg/wysiwyg.image.js -text
+resources/jwysiwyg/wysiwyg.link.js -text
+resources/jwysiwyg/wysiwyg.table.js -text
 resources/lytebox/images/blank.gif -text
 resources/lytebox/images/close_blue.png -text
 resources/lytebox/images/close_gold.png -text

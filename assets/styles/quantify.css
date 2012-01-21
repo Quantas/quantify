@@ -1,9 +1,8 @@
 /* 
-    Document   : Quantify CSS
+    Document   : quantify.css
     Created on : Jan 14, 2012, 5:28:04 PM
     Author     : Quantas
-    Description:
-        Purpose of the stylesheet follows.
+    Description: Default Style for the Quantify Blog Platform
 */
 
 root 
@@ -69,17 +68,23 @@ body
     -webkit-box-shadow: 0 0 8px #D0D0D0;
 }
 
-.editor
+.style-editor
 {
     text-align: left;
 }
 
-.button
+.style-button
 {
     border: 2px solid #ccc;
     font-size: 12px;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     width: 100px;
+}
+
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .button:hover
@@ -126,6 +131,13 @@ Entry
 {
     margin-left: 20px;
     text-align: left;
+}
+
+.entry_editor_wrapper
+{
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 700px
 }
 
 /*

@@ -65,4 +65,17 @@ class Entry extends CI_Controller
         $vars['title'] = anchor('/', 'Home') . ' > ' . $entry->getEntryTitle();
         $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
+    
+    function add()
+    {
+        $vars['dbconfigs'] = getConfigArray();
+        $vars['content_view'] = 'entry_editor';
+        $vars['title'] = anchor('/', 'Home') . ' > Add Entry';
+        $this->load->view($vars['dbconfigs']['Style'],$vars);
+    }
+    
+    function submit()
+    {
+        echo $this->input->post('wysiwyg');
+    }
 }

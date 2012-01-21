@@ -2,7 +2,7 @@
 use models\Quantify\Config;
 
 /**
- * Description of admin
+ * Description of theme
  *
  * @author Quantas
  */

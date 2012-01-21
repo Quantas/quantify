@@ -69,6 +69,11 @@ body
     -webkit-box-shadow: 0 0 8px #D0D0D0;
 }
 
+.editor
+{
+    text-align: left;
+}
+
 .button
 {
     border: 2px solid #ccc;

@@ -57,38 +57,38 @@ class Tools extends CI_Controller
         $em = $this->doctrine->em;
         
         $config = new Config;
-        $config->setKey('SiteName');
-        $config->setValue('Your Blog');
+        $config->setConfigKey('SiteName');
+        $config->setConfigValue('Your Blog');
         $em->persist($config);
         
         $config1 = new Config;
-        $config1->setKey('SiteDesc');
-        $config1->setValue('A Place for Stuff');
+        $config1->setConfigKey('SiteDesc');
+        $config1->setConfigValue('A Place for Stuff');
         $em->persist($config1);
         
         $config2 = new Config;
-        $config2->setKey('Timezone');
-        $config2->setValue('America/Chicago');
+        $config2->setConfigKey('Timezone');
+        $config2->setConfigValue('America/Chicago');
         $em->persist($config2);
         
         $config3 = new Config;
-        $config3->setKey('Style');
-        $config3->setValue('quantify');
+        $config3->setConfigKey('Style');
+        $config3->setConfigValue('quantify');
         $em->persist($config3);
         
         $config4 = new Config;
-        $config4->setKey('DisqusShortname');
-        $config4->setValue('quantifyblog');
+        $config4->setConfigKey('DisqusShortname');
+        $config4->setConfigValue('quantifyblog');
         $em->persist($config4);
         
         $config5 = new Config;
-        $config5->setKey('DisqusDev');
-        $config5->setValue('1');
+        $config5->setConfigKey('DisqusDev');
+        $config5->setConfigValue('1');
         $em->persist($config5);
         
         $config6 = new Config;
-        $config6->setKey('DisqusEnabled');
-        $config6->setValue('1');
+        $config6->setConfigKey('DisqusEnabled');
+        $config6->setConfigValue('1');
         $em->persist($config6);
         
         $perm = new Permission;

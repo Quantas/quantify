@@ -94,12 +94,12 @@ class Tools extends CI_Controller
         $perm = new Permission;
         $perm->setPermissionLevel(0);
         $perm->setPermissionName('Administrator');
-        $em->persist();
+        $em->persist($perm);
         
         $user = new User;
         $user->setUserName('admin');
         $user->setUserPassword('password');
-        $user->UserDisplayName('Admin');
+        $user->setUserDisplayName('Admin');
         $user->setUserEmail('admin@localhost');
         $user->setPermission($perm);
         $em->persist($user);

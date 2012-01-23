@@ -24,7 +24,7 @@ class Admin extends MY_Controller
     function index()
     {
         $vars['dbconfigs'] = getConfigArray();
-        $vars['content_view'] = 'admin';
+        $vars['sidebar_view'] = 'admin';
         $vars['title'] = $this->title;
         $this->load->view($vars['dbconfigs']['Style'],$vars);
     }
@@ -55,6 +55,7 @@ class Admin extends MY_Controller
         $vars['configs'] = $configs;
         $vars['tzlist'] = $tzlist;
         $vars['dbconfigs'] = getConfigArray();
+        $vars['sidebar_view'] = 'admin';
         $vars['content_view'] = 'config';
         $vars['title'] = $this->title . ' > Config';
         $this->load->view($vars['dbconfigs']['Style'],$vars);
@@ -71,6 +72,7 @@ class Admin extends MY_Controller
         
         $vars['categories'] = $categories;
         $vars['dbconfigs'] = getConfigArray();
+        $vars['sidebar_view'] = 'admin';
         $vars['content_view'] = 'admin_category';
         $vars['title'] = $this->title . ' > Categories';
         $this->load->view($vars['dbconfigs']['Style'],$vars);
@@ -110,6 +112,7 @@ class Admin extends MY_Controller
         
         $vars['entries'] = $entries;
         $vars['dbconfigs'] = getConfigArray();
+        $vars['sidebar_view'] = 'admin';
         $vars['content_view'] = 'admin_entries';
         $vars['title'] = $this->title . ' > Entries';
         $this->load->view($vars['dbconfigs']['Style'],$vars);
@@ -126,6 +129,7 @@ class Admin extends MY_Controller
         
         $vars['users'] = $users;
         $vars['dbconfigs'] = getConfigArray();
+        $vars['sidebar_view'] = 'admin';
         $vars['content_view'] = 'admin_users';
         $vars['title'] = $this->title . ' > Users';
         $this->load->view($vars['dbconfigs']['Style'],$vars);

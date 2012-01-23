@@ -11,5 +11,6 @@
 </div>
 <div class="style-editor-buttons">
     <input type="submit" name="submit" value="Submit" class="button" />
+    <input type="button" name="cancel" value="Cancel" class="button" onClick="history.go(-1)" />
 </div>
 <?php echo form_close(); ?>

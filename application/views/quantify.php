@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -20,10 +22,10 @@
 </head>
 <body>
     <div id="header">
-            <div>
-                <?php $this->load->view('header'); ?>
-            </div>
+        <div>
+            <?php $this->load->view('header'); ?>
         </div>
+    </div>
     <div id="shell">
         <div>
             <?php $this->load->view('nav'); ?>
@@ -32,16 +34,35 @@
             <div id="titleDiv">
                 <?php echo $title; ?>
             </div>
-            <div id="content">
+            
+                <?php 
+                if(isset($sidebar_view))
+                {
+                ?>
+                    <div id="sidebar">
+                        <?php $this->load->view($sidebar_view); ?>
+                    </div>
+                    <div id="main">
+                <?php
+                }
+                else 
+                {
+                ?>
+            <div id="main-noside">
+                <?php } ?>
                 <?php $this->load->view('banner_messages'); ?>
-                <?php $this->load->view($content_view); ?>
+                <?php if(isset($content_view))
+                {
+                    $this->load->view($content_view); 
+                }
+                ?>
             </div>
         </div>
         <div id="bottom">
             Page rendered in {elapsed_time} seconds | &copy;2012 Quantasnet | <?php echo anchor('admin', 'Admin'); ?>
         </div>
     </div>
-    <br/>
-    <br/>
+    <br />
+    <br />
 </body>
 </html>

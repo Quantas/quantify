@@ -1,4 +1,4 @@
-<table id="admin-config" style="width:750px">
+<table id="admin-config">
     <tr>
         <th>
             Entry
@@ -25,13 +25,13 @@ foreach($entries as $entry)
             <?php echo $entry['entry_title']; ?>
         </td>
         <td>
-            <?php echo anchor('admin/editEntry/'.$entry['entry_id'], '[EDIT]'); ?>
+            <?php echo anchor('entry/edit/'.$entry['entry_id'], '[E]'); ?>
         </td>
         <td>
-            <?php echo anchor('entry/view/'.$entry['entry_id'], '[VIEW]'); ?>
+            <?php echo anchor('entry/view/'.$entry['entry_id'], '[V]'); ?>
         </td>
         <td>
-            <?php echo anchor('admin/deleteEntry/'.$entry['entry_id'], '[DELETE]'); ?>
+            <?php echo anchor('entry/deleteEntry/'.$entry['entry_id'], '[D]'); ?>
         </td>
         <td>
             <?php echo $entry['user_display_name']; ?>
@@ -52,3 +52,5 @@ foreach($entries as $entry)
         Pages: <?php echo $pagination; ?>
     </div>
 <?php endif; ?>
+
+<input type="button" name="add" value="Add" class="button" onclick="javascript:window.location = '<?php echo site_url(); ?>entry/add';" />

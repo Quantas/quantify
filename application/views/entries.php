@@ -11,11 +11,12 @@ foreach($entries as $entry)
         </div>
         <div id="entries-text">
             <?php
-                echo substr($entry['content'],0, 250); 
+                /*echo substr($entry['content'],0, 250); 
                 if(strlen($entry['content']) > 250)
                 {
                     echo '...';
-                }
+                }*/
+                echo $entry['content'];
             ?>
         </div>
     </div>

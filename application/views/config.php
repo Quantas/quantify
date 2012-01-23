@@ -85,6 +85,7 @@ foreach ($configs as $config)
         </td>
     </tr>
 </table>
+<br />
 <?php echo form_close(); ?>
 
 <?php echo form_open('admin/addConfig'); ?>
@@ -117,3 +118,4 @@ foreach ($configs as $config)
     </tr>
 </table>
 <?php echo form_close(); ?>
+<br />

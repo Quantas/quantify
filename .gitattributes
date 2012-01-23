@@ -509,6 +509,7 @@ application/views/not_found.php -text
 application/views/quantify.php -text
 application/views/rss.php -text
 assets/images/header.jpg -text
+assets/images/wallpaper.jpg -text
 assets/styles/quantify.css -text
 /index.php -text
 /license.txt -text

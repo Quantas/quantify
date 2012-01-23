@@ -24,6 +24,7 @@ class Theme extends MY_Controller
         $content = htmlspecialchars(read_file($file), ENT_QUOTES);
         
         $vars['content'] = $content;
+        $vars['sidebar_view'] = 'admin';
         $vars['content_view'] = 'edit_style';
         $vars['title'] = 'Edit Style';
         $this->load->view($vars['dbconfigs']['Style'],$vars);

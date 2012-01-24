@@ -194,7 +194,7 @@ class Admin extends MY_Controller
                 $em->flush();
             }
         }
-        redirect('admin/configs');
+        redirect('admin/config');
     }
     
     public function addUser() 

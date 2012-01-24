@@ -4,7 +4,7 @@ foreach($entries as $entry)
     ?>
     <div id="entries-entry">
         <div id="entries-title">
-            <?php echo anchor('entry/view/' . $entry['entry_id'], $entry['entry_title']); ?>
+            <?php echo anchor('story/view/' . $entry['entry_id'], $entry['entry_title']); ?>
         </div>
         <div id="entries-subtitle">
             By: <?php echo $entry['user_display_name']; ?> | Posted in: <?php echo $entry['category_name']; ?> | At: <?php echo $entry['entry_timestamp']; ?>

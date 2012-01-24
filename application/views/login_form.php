@@ -11,7 +11,7 @@
         <td><?php echo form_password('password'); ?></td>
 </tr>
 <tr>
-    <td colspan="2"><?php echo form_submit('submit','Login'); ?></td>
+    <td colspan="2"><input type="submit" id="submit" name="submit" value="Login" class="button"></td>
 </tr>
 </table>
 <?php echo form_close(); ?>

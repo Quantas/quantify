@@ -24,6 +24,7 @@ application/controllers/entry.php -text
 application/controllers/error.php -text
 application/controllers/feed.php -text
 application/controllers/index.html -text
+application/controllers/story.php -text
 application/controllers/test.php -text
 application/controllers/theme.php -text
 application/controllers/tools.php -text

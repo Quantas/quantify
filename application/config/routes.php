@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "entry/entries";
+$route['default_controller'] = "story/entries";
 $route['404_override'] = 'error/not_found_404';
 
 

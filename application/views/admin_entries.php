@@ -28,7 +28,7 @@ foreach($entries as $entry)
             <?php echo anchor('entry/edit/'.$entry['entry_id'], '[E]'); ?>
         </td>
         <td>
-            <?php echo anchor('entry/view/'.$entry['entry_id'], '[V]'); ?>
+            <?php echo anchor('story/view/'.$entry['entry_id'], '[V]'); ?>
         </td>
         <td>
             <?php echo anchor('entry/deleteEntry/'.$entry['entry_id'], '[D]'); ?>

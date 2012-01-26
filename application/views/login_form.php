@@ -1,4 +1,4 @@
-<?php echo form_open('auth/submit'); ?>
+<?php echo form_open('/auth/submit'); ?>
 
 <?php echo validation_errors('<p class="error">','</p>'); ?>
 <table>

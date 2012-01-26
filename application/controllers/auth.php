@@ -13,11 +13,6 @@ class Auth extends CI_Controller
         $this->load->library('form_validation');
     }
     
-    public function index()
-    {
-        getConfigArray();
-    }
-    
     public function login()
     {
         $vars['dbconfigs'] = getConfigArray();
@@ -36,7 +31,7 @@ class Auth extends CI_Controller
     {
         if ($this->_submit_validate() === FALSE)
         {
-            $this->login();
+            redirect('/auth/login');
             return;
         }
         // user has been logged in

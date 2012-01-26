@@ -12,7 +12,7 @@ function check_login()
 	$CI->load->helper('url');
 
 	// Location of the login screen
-	$login_url = 'auth/login';
+	$login_url = '/auth/login';
 
 	// Session variable to check if user is logged in
 	$user_session_var = 'logged_in';

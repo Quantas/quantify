@@ -69,7 +69,7 @@
         <tr>
             <td>Commenting Enabled</td>
             <td>
-                <input type="checkbox" name="commenting" <?php if($entry->getEntryCommentsEnabled() == 1){ echo 'CHECKED'; } ?>/>
+                <input type="checkbox" name="commenting" <?php if(isset($entry) && $entry->getEntryCommentsEnabled() == 1){ echo 'CHECKED'; } ?>/>
             </td>
         </tr>
     </table>

@@ -495,6 +495,7 @@ application/views/admin.php -text
 application/views/admin_category.php -text
 application/views/admin_entries.php -text
 application/views/admin_noperms.php -text
+application/views/admin_user_edit.php -text
 application/views/admin_users.php -text
 application/views/banner_messages.php -text
 application/views/categories.php -text
@@ -504,6 +505,7 @@ application/views/edit_style.php -text
 application/views/entries.php -text
 application/views/entry.php -text
 application/views/entry_editor.php -text
+application/views/error.php -text
 application/views/header.php -text
 application/views/home.php -text
 application/views/index.html -text
@@ -515,6 +517,7 @@ application/views/rss.php -text
 assets/images/header.jpg -text
 assets/images/wallpaper.jpg -text
 assets/styles/quantify.css -text
+/gpl.txt -text
 /index.php -text
 /license.txt -text
 resources/codemirror/lib/codemirror.css -text

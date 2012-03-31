@@ -299,6 +299,89 @@ class Admin extends MY_Controller
             redirect('admin/noperms');
         }
     }
+    
+    public function editUser($id = 0)
+    {
+        if(hasPermission(Current_User::user(), 'Administrator'))
+        {
+            if($id > 0)
+            {            
+                $em = $this->doctrine->em;
+                $user = $em->getRepository('models\Quantify\User')->findOneBy(array('user_id' => $id));
+                $permissions = $em->getRepository('models\Quantify\Permission')->findAll();
+
+                $vars['permissions'] = $permissions;
+                $vars['user'] = $user;
+                $vars['dbconfigs'] = getConfigArray();
+                $vars['sidebar_view'] = 'admin';
+                $vars['content_view'] = 'admin_user_edit';
+                $vars['title'] = $this->title . ' > Edit User';
+                $this->load->view($vars['dbconfigs']['Style'],$vars);
+            }
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
+    
+    public function editUserSave()
+    {
+        if(hasPermission(Current_User::user(), 'Administrator'))
+        {
+            if ($this->_edit_submit_validate() === FALSE) 
+            {
+                $this->editUser($this->input->post('user_id'));
+                return;
+            }
+            
+            $em = $this->doctrine->em;
+
+            $u = $em->getRepository('models\Quantify\User')->findOneBy(array('user_id' => $this->input->post('user_id')));
+            if($this->input->post('password') != '')
+            {
+                $u->setUserPassword($this->input->post('password'));
+            }
+            $u->setUserEmail($this->input->post('email'));
+            $u->setuserDisplayName($this->input->post('displayname'));
+            $u->setPermission($em->getRepository('models\Quantify\Permission')->findOneBy(array('permission_id' => $this->input->post('permission'))));
+            $em->persist($u);
+            $em->flush();
+
+            redirect('admin/users');
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
+    
+    public function deleteUser($id = 0)
+    {
+        if(hasPermission(Current_User::user(), 'Administrator'))
+        {
+            if($id > 0)
+            {
+                try
+                {
+                    $em = $this->doctrine->em;
+                    $user = $em->getRepository('models\Quantify\User')->findOneBy(array('user_id' => $id));
+                    $em->remove($user);
+                    $em->flush();
+                    
+                    redirect('admin/users');
+                }
+                catch(Exception $e)
+                {
+                    error_occured('There was an error deleting the user, do they have entries?<br />' . $e->getMessage());
+                }
+            }
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
 	
     private function _submit_validate() 
     {
@@ -308,6 +391,20 @@ class Admin extends MY_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|max_length[12]');
 
         $this->form_validation->set_rules('password-again', 'Confirm Password', 'required|matches[password]');
+
+        $this->form_validation->set_rules('displayname', 'Display Name', 'required|max_length[255]');
+
+        $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email|unique[models\Quantify\User.email]');
+
+        return $this->form_validation->run();	
+    }
+    
+    private function _edit_submit_validate() 
+    {
+        // validation rules
+        $this->form_validation->set_rules('password', 'Password', 'min_length[6]|max_length[12]');
+
+        $this->form_validation->set_rules('password-again', 'Confirm Password', 'matches[password]');
 
         $this->form_validation->set_rules('displayname', 'Display Name', 'required|max_length[255]');
 

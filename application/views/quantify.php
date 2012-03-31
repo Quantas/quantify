@@ -78,7 +78,19 @@
             </div>
         </div>
         <div id="bottom">
-            Page rendered in {elapsed_time} seconds | &copy;2012 Quantasnet | <?php echo anchor('admin', 'Admin'); ?>
+            Page rendered in {elapsed_time} seconds | &copy;2012 Quantasnet | <?php if ($user = models\Quantify\Current_User::user()) 
+                                                                                    {
+                                                                                    ?>
+                                                                                    <?php echo anchor('admin', 'Admin'); ?> | <?php echo anchor('/auth/logout', 'Logout'); ?>
+                                                                                    <?php
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                    ?>
+                                                                                    <?php echo anchor('/auth/login', 'Login'); ?>
+                                                                                    <?php 
+                                                                                    } 
+                                                                                    ?>
         </div>
     </div>
     <br />

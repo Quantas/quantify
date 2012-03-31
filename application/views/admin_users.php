@@ -32,6 +32,9 @@
         <th>
             Entries
         </th>
+        <th>
+            
+        </th>
     </tr>
 <?php
 foreach($users as $user)
@@ -58,6 +61,9 @@ foreach($users as $user)
                     echo '0';
                 }
             ?> 
+        </td>
+        <td>
+            <?php echo anchor('admin/deleteUser/'.$user->getUserId(), '[D]') . ' ' . anchor('admin/editUser/' . $user->getUserId(), '[E]'); ?>
         </td>
     </tr>
 <?php

@@ -33,3 +33,15 @@ function convert_dbdate_tz($dateTimeObj, $tzObj)
     $curtztrans = $tzObj->getTransitions();
     return $dateTimeObj->format('m/d/Y H:i:s') . '&nbsp;' . $curtztrans[0]['abbr'];
 }
+
+function error_occured($error)
+{
+    // Get CodeIgniter Object
+    $CI =& get_instance();
+        
+    $vars['error'] = $error;
+    $vars['dbconfigs'] = getConfigArray();
+    $vars['content_view'] = 'error';
+    $vars['title'] = 'Error';
+    $CI->load->view($vars['dbconfigs']['Style'],$vars);
+}

@@ -1,3 +1,23 @@
+<?php
+/*
+ * Copyright 2012 Andrew Landsverk
+ *
+ * This file is part of Quantify.
+ *
+ * Quantify is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later 
+ * version.
+ *
+ * Quantify is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more 
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with 
+ * Quantify. If not, see http://www.gnu.org/licenses/.
+ */
+?>
 <table id="admin-config">
     <tr>
         <th>
@@ -33,7 +53,7 @@ foreach($users as $user)
                 {
                     echo $user->getEntries()->count(); 
                 }
-                catch(Exception $e)
+                catch(Exception $e) //This is dirty
                 {
                     echo '0';
                 }
@@ -82,6 +102,21 @@ foreach($users as $user)
         </td>
         <td>
             <?php echo form_password('password-again',set_value('password-again')); ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="permission">Permission</label>
+        </td>
+        <td>
+            <select id="category" name="permission">
+            <?php
+                foreach($permissions as $permission)
+                {
+                    echo '<option value="' . $permission->getPermissionId() . '">' . $permission->getPermissionName() . '</option>';
+                }
+            ?>
+            </select>
         </td>
     </tr>
     <tr>

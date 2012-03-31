@@ -20,12 +20,12 @@ application/config/user_agents.php -text
 application/controllers/Test.php -text
 application/controllers/admin.php -text
 application/controllers/auth.php -text
+application/controllers/category.php -text
 application/controllers/entry.php -text
 application/controllers/error.php -text
 application/controllers/feed.php -text
 application/controllers/index.html -text
 application/controllers/story.php -text
-application/controllers/test.php -text
 application/controllers/theme.php -text
 application/controllers/tools.php -text
 application/controllers/welcome.php -text
@@ -494,8 +494,11 @@ application/third_party/index.html -text
 application/views/admin.php -text
 application/views/admin_category.php -text
 application/views/admin_entries.php -text
+application/views/admin_noperms.php -text
 application/views/admin_users.php -text
 application/views/banner_messages.php -text
+application/views/categories.php -text
+application/views/category_entries.php -text
 application/views/config.php -text
 application/views/edit_style.php -text
 application/views/entries.php -text

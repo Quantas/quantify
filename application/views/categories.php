@@ -18,3 +18,9 @@
  * Quantify. If not, see http://www.gnu.org/licenses/.
  */
 ?>
+<?php
+foreach ($categories as $category)
+{
+    echo anchor('/category/view/' . $category->getCategoryName(), $category->getCategoryName());
+}
+?>

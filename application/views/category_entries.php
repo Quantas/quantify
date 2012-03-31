@@ -18,3 +18,9 @@
  * Quantify. If not, see http://www.gnu.org/licenses/.
  */
 ?>
+<?php
+foreach ($entries as $entry)
+{
+    echo anchor('/story/view/' . $entry['entry_id'], $entry['entry_title']) . '<br />';
+}
+?>

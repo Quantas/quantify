@@ -17,8 +17,7 @@
  * You should have received a copy of the GNU General Public License along with 
  * Quantify. If not, see http://www.gnu.org/licenses/.
  */
-?>
-<?php
+
 echo form_open('admin/editConfigs');
 ?>
 <table id="admin-config">
@@ -139,3 +138,6 @@ foreach ($configs as $config)
 </table>
 <?php echo form_close(); ?>
 <br />
+<script>
+    $('input[name="key"]').focus();
+</script>

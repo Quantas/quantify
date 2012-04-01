@@ -74,3 +74,7 @@
     </tr>
 </table>
 <?php echo form_close(); ?>
+
+<script>
+    $('input[name="displayname"]').focus();
+</script>

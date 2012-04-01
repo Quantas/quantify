@@ -65,3 +65,7 @@ foreach($categories as $category)
     </tr>
 </table>
 <?php echo form_close(); ?>
+
+<script>
+    $('input[name="name"]').focus();
+</script>

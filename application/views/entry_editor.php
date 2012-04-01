@@ -114,3 +114,7 @@
     <input type="submit" name="Submit" value="Submit" class="button" />
     <?php echo form_close(); ?>
 </div>
+
+<script>
+    $('input[name="entryTitle"]').focus();
+</script>

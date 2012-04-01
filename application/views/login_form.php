@@ -35,3 +35,7 @@
 </tr>
 </table>
 <?php echo form_close(); ?>
+
+<script>
+    $('input[name="username"]').focus();
+</script>

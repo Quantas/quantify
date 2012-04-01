@@ -187,6 +187,30 @@ class Admin extends MY_Controller
             redirect('admin/noperms');
         }
     }
+
+       /**
+    * Display the permisisons
+    */
+    function permissions()
+    {
+        if(hasPermission(Current_User::user(), 'Administrator'))
+        {
+            $em = $this->doctrine->em;
+            
+            $permissions = $em->getRepository('models\Quantify\Permission')->findAll();
+
+            $vars['permissions'] = $permissions;
+            $vars['dbconfigs'] = getConfigArray();
+            $vars['sidebar_view'] = 'admin';
+            $vars['content_view'] = 'admin_perms';
+            $vars['title'] = $this->title . ' > Permissions';
+            $this->load->view($vars['dbconfigs']['Style'],$vars);
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
     
     /**
      * Add a new config to the DB
@@ -383,6 +407,55 @@ class Admin extends MY_Controller
         }
     }
 	
+    public function profile()
+    {
+        if(hasPermission(Current_User::user(), 'User'))
+        {
+            $em = $this->doctrine->em;
+            
+            $vars['user'] = Current_User::user();
+            $vars['dbconfigs'] = getConfigArray();
+            $vars['sidebar_view'] = 'admin';
+            $vars['content_view'] = 'admin_profile';
+            $vars['title'] = $this->title . ' > Profie';
+            $this->load->view($vars['dbconfigs']['Style'],$vars);
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
+    
+    public function editProfile()
+    {
+        if(hasPermission(Current_User::user(), 'User') && $this->input->post('user_id') == Current_User::user()->getUserId())
+        {
+            if ($this->_edit_submit_validate() === FALSE) 
+            {
+                $this->profile();
+                return;
+            }
+            
+            $em = $this->doctrine->em;
+
+            $u = Current_User::user();
+            if($this->input->post('password') != '')
+            {
+                $u->setUserPassword($this->input->post('password'));
+            }
+            $u->setUserEmail($this->input->post('email'));
+            $u->setuserDisplayName($this->input->post('displayname'));
+            $em->persist($u);
+            $em->flush();
+
+            redirect('admin/profile');
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
+    
     private function _submit_validate() 
     {
         // validation rules

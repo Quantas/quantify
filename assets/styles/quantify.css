@@ -50,6 +50,17 @@ body
     margin: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
+    height: 20px;
+}
+
+#titleLeft
+{
+    float: left;
+}
+
+#titleRight
+{
+    float: right;
 }
 
 #header

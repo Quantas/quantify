@@ -72,6 +72,11 @@
                 <input type="checkbox" name="commenting" <?php if(isset($entry) && $entry->getEntryCommentsEnabled() == 1){ echo 'CHECKED'; } ?>/>
             </td>
         </tr>
+        <tr>
+            <td colspan="2">
+                <input id="richButton" class="button" type="button" name="type" value="Plain Editor" onClick="javascript:toggleEditor()" />
+            </td>
+        </tr>
     </table>
     <script type="text/javascript" src="<?php echo site_url(); ?>resources/jwysiwyg/jquery.wysiwyg.js"></script>
     <script type="text/javascript" src="<?php echo site_url(); ?>resources/jwysiwyg/wysiwyg.image.js"></script>
@@ -79,13 +84,31 @@
     <script type="text/javascript" src="<?php echo site_url(); ?>resources/jwysiwyg/wysiwyg.link.js"></script>
     <link rel="stylesheet" href="<?php echo site_url(); ?>resources/jwysiwyg/jquery.wysiwyg.css" />
     <script type="text/javascript">
+        var isRich = true;
+        
         $(function() 
         {
             $('#wysiwyg').wysiwyg();
             <?php if (!isset($entry)) { ?>$('#wysiwyg').wysiwyg('clear');<?php } ?>
         });
+        
+        function toggleEditor()
+        {
+            if(isRich)
+            {
+                $('#wysiwyg').wysiwyg('destroy');
+                isRich = false;
+                $('#richButton').val('Rich Editor');
+            }
+            else
+            {
+                $('#wysiwyg').wysiwyg();
+                isRich = true;
+                $('#richButton').val('Plain Editor');
+            }
+        }
     </script>
-    <textarea id="wysiwyg" name="wysiwyg" style="width: 100%">
+    <textarea id="wysiwyg" name="wysiwyg" style="width: 100%; height:400px">
         <?php if(isset($entry)) echo $entry->getEntryContent(); ?>
     </textarea>
     <input type="submit" name="Submit" value="Submit" class="button" />

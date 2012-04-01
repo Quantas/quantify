@@ -17,7 +17,6 @@ application/config/profiler.php -text
 application/config/routes.php -text
 application/config/smileys.php -text
 application/config/user_agents.php -text
-application/controllers/Test.php -text
 application/controllers/admin.php -text
 application/controllers/auth.php -text
 application/controllers/category.php -text
@@ -25,10 +24,10 @@ application/controllers/entry.php -text
 application/controllers/error.php -text
 application/controllers/feed.php -text
 application/controllers/index.html -text
+application/controllers/register.php -text
 application/controllers/story.php -text
 application/controllers/theme.php -text
 application/controllers/tools.php -text
-application/controllers/welcome.php -text
 application/core/MY_Controller.php -text
 application/core/index.html -text
 application/errors/error_404.php -text
@@ -495,6 +494,8 @@ application/views/admin.php -text
 application/views/admin_category.php -text
 application/views/admin_entries.php -text
 application/views/admin_noperms.php -text
+application/views/admin_perms.php -text
+application/views/admin_profile.php -text
 application/views/admin_user_edit.php -text
 application/views/admin_users.php -text
 application/views/banner_messages.php -text
@@ -507,13 +508,14 @@ application/views/entry.php -text
 application/views/entry_editor.php -text
 application/views/error.php -text
 application/views/header.php -text
-application/views/home.php -text
 application/views/index.html -text
 application/views/login_form.php -text
 application/views/nav.php -text
 application/views/not_found.php -text
 application/views/quantify.php -text
 application/views/rss.php -text
+application/views/signup.php -text
+assets/images/feed-icon.png -text
 assets/images/header.jpg -text
 assets/images/wallpaper.jpg -text
 assets/styles/quantify.css -text

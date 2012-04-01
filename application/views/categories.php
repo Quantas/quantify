@@ -17,10 +17,9 @@
  * You should have received a copy of the GNU General Public License along with 
  * Quantify. If not, see http://www.gnu.org/licenses/.
  */
-?>
-<?php
+
 foreach ($categories as $category)
 {
-    echo anchor('/category/view/' . $category->getCategoryName(), $category->getCategoryName());
+    echo anchor('/category/view/' . $category->getCategoryName(), $category->getCategoryName()) . '<br />';
 }
 ?>

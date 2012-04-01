@@ -51,7 +51,20 @@
         </div>
         <div id="container">
             <div id="titleDiv">
-                <?php echo $title; ?>
+                <div id="titleLeft"><?php echo $title; ?></div>
+                <div id="titleRight">
+                    <!--Facebook Like Button --><script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script><style> html .fb_share_button { display: -moz-inline-block; display:inline-block; padding:1px 20px 0 5px; height:15px; background:url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981) no-repeat top right; } html  </style> <a rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" class="fb_share_button" onclick="return fbs_click()" target="_blank" style="text-decoration:none;" ></a>
+                    <!--Twitter tweet Button --><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    <!--Google +1 Button --><g:plusone size="small" annotation="none"></g:plusone>
+                    <script type="text/javascript">
+                    (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                    })();
+                    </script>
+                    <!-- RSS Feed Button --><a href="<?php echo base_url(); ?>feed"><img src="<?php echo base_url(); ?>assets/images/feed-icon.png" alt="RSS Feed"/></a>
+                </div>
             </div>
             
                 <?php 
@@ -87,6 +100,7 @@
                                                                                     else
                                                                                     {
                                                                                     ?>
+                                                                                    <?php echo anchor('/register/signupForm', 'Register'); ?> | 
                                                                                     <?php echo anchor('/auth/login', 'Login'); ?>
                                                                                     <?php 
                                                                                     } 

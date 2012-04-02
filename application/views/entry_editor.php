@@ -73,8 +73,24 @@
             </td>
         </tr>
         <tr>
+            <td>Add Image</td>
+            <td>
+                <select id="images" name="images">
+                <?php
+                echo '<option value="" SELECTED></option>';
+                
+                foreach ($files as $file)
+                {
+                    echo '<option value="' . $file . '">' . $file . '</option>';
+                }
+                ?>
+                </select>
+                <input id="addImage" class="button" type="button" name="addImage" value="Add Image" onClick="javascript:appendImage(); " />
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
-                <input id="richButton" class="button" type="button" name="type" value="Plain Editor" onClick="javascript:toggleEditor()" />
+                <input id="richButton" class="button" type="button" name="type" value="Plain Editor" onClick="javascript:toggleEditor(); " />
             </td>
         </tr>
     </table>
@@ -88,7 +104,11 @@
         
         $(function() 
         {
-            $('#wysiwyg').wysiwyg();
+            $('#wysiwyg').wysiwyg({
+                controls: {
+                    insertImage: { visible : false }
+                }
+            });
             <?php if (!isset($entry)) { ?>$('#wysiwyg').wysiwyg('clear');<?php } ?>
         });
         
@@ -102,17 +122,35 @@
             }
             else
             {
-                $('#wysiwyg').wysiwyg();
+                $('#wysiwyg').wysiwyg({
+                controls: {
+                    insertImage: { visible : false }
+                }
+                });
                 isRich = true;
                 $('#richButton').val('Plain Editor');
             }
+        }
+        
+        function appendImage()
+        {
+            var selectedImage = $("#images").val();
+            var baseUrl = '<?php echo base_url(); ?>';
+            
+            $('#wysiwyg').wysiwyg('destroy');
+            $('#wysiwyg').val($('#wysiwyg').val() + '<img style="width: 100%;" src="' + baseUrl + 'assets/uploads/' + selectedImage + '" />');
+            $('#wysiwyg').wysiwyg({
+                controls: {
+                    insertImage: { visible : false }
+                }
+                });
         }
     </script>
     <textarea id="wysiwyg" name="wysiwyg" style="width: 100%; height:400px">
         <?php if(isset($entry)) echo $entry->getEntryContent(); ?>
     </textarea>
     <input type="submit" name="Submit" value="Submit" class="button" />
-    <?php echo form_close(); ?>
+    <?php echo form_close(); ?>     
 </div>
 
 <script>

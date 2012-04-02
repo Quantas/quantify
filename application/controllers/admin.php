@@ -41,6 +41,7 @@ class Admin extends MY_Controller
         parent::__construct();
         $this->title = anchor('admin/', 'Administration');
         $this->load->library('form_validation');
+        $this->load->helper('file');
     }
     
     function index()
@@ -154,6 +155,66 @@ class Admin extends MY_Controller
             $vars['content_view'] = 'admin_entries';
             $vars['title'] = $this->title . ' > Entries';
             $this->load->view($vars['dbconfigs']['Style'],$vars);
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
+    
+    /**
+     * Display the files
+     */
+    function files()
+    {
+        if(hasPermission(Current_User::user(), 'Editor'))
+        {
+            $vars['files'] = get_filenames('./assets/uploads/');
+          
+            $vars['dbconfigs'] = getConfigArray();
+            $vars['sidebar_view'] = 'admin';
+            $vars['content_view'] = 'admin_files';
+            $vars['title'] = $this->title . ' > Files';
+            $this->load->view($vars['dbconfigs']['Style'],$vars);
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
+    
+    function deleteFile($filename)
+    {
+        if(hasPermission(Current_User::user(), 'Editor'))
+        {
+           unlink('./assets/uploads/' . $filename);
+           redirect('admin/files');
+        }
+        else
+        {
+            redirect('admin/noperms');
+        }
+    }
+    
+    function uploadFile()
+    {
+        if(hasPermission(Current_User::user(), 'Editor'))
+        {
+            $config['upload_path'] = './assets/uploads/';
+            $config['allowed_types'] = 'gif|jpg|png';
+
+            $this->load->library('upload', $config);
+
+            if ( ! $this->upload->do_upload())
+            {
+                $error = array('error' => $this->upload->display_errors());
+                $this->files($error);
+            }
+            else
+            {
+                $data = array('upload_data' => $this->upload->data());
+                redirect('admin/files');
+            }
         }
         else
         {

@@ -22,6 +22,7 @@
     <?php if(hasPermission(models\Quantify\Current_User::user(), 'Administrator')) { echo anchor('admin/config', 'Config'); } ?>
     <?php if(hasPermission(models\Quantify\Current_User::user(), 'Editor')) { echo anchor('admin/entries', 'Entries'); } ?>
     <?php if(hasPermission(models\Quantify\Current_User::user(), 'Editor')) { echo anchor('admin/categories', 'Categories'); } ?>
+    <?php if(hasPermission(models\Quantify\Current_User::user(), 'Editor')) { echo anchor('admin/files', 'Files'); } ?>
     <?php if(hasPermission(models\Quantify\Current_User::user(), 'Administrator')) { echo anchor('admin/users', 'Users'); } ?>
     <?php if(hasPermission(models\Quantify\Current_User::user(), 'Administrator')) { echo anchor('admin/permissions', 'Permissions'); } ?>
     <?php if(hasPermission(models\Quantify\Current_User::user(), 'User')) { echo anchor('admin/profile', 'Profile'); } ?>

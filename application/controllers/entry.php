@@ -32,6 +32,7 @@ class Entry extends MY_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->helper('file');
     }
     
     function add()
@@ -42,6 +43,7 @@ class Entry extends MY_Controller
 
             $categories = $em->getRepository('models\Quantify\Category')->findAll();
 
+            $vars['files'] = get_filenames('./assets/uploads/');
             $vars['categories'] = $categories;
             $vars['dbconfigs'] = getConfigArray();
             $vars['content_view'] = 'entry_editor';
@@ -64,6 +66,7 @@ class Entry extends MY_Controller
                 $entry = $em->getRepository('models\Quantify\Entry')->findOneBy(array('entry_id' => $id));
                 $categories = $em->getRepository('models\Quantify\Category')->findAll();
 
+                $vars['files'] = get_filenames('./assets/uploads/');
                 $vars['categories'] = $categories;
                 $vars['entry'] = $entry;
                 $vars['dbconfigs'] = getConfigArray();
@@ -109,7 +112,7 @@ class Entry extends MY_Controller
             }
             
             $em = $this->doctrine->em;
-
+            
             $entry = $em->getRepository('models\Quantify\Entry')->findOneBy(array('entry_id' => $this->input->post('entry_id')));
             $entry->setEntryTitle($this->input->post('entryTitle'));
             $entry->setEntryContent($this->input->post('wysiwyg'));

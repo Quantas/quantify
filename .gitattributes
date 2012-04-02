@@ -493,6 +493,7 @@ application/third_party/index.html -text
 application/views/admin.php -text
 application/views/admin_category.php -text
 application/views/admin_entries.php -text
+application/views/admin_files.php -text
 application/views/admin_noperms.php -text
 application/views/admin_perms.php -text
 application/views/admin_profile.php -text

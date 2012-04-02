@@ -107,6 +107,7 @@
                                                                                     ?>
         </div>
     </div>
+        <div id="bottom-bottom">Powered By: CodeIgniter | Doctrine | jQuery | jWYSIWYG | CodeMirror | lytebox | PHP | MySQL</div>
     <br />
     <br />
 </body>

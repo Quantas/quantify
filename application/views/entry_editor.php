@@ -136,9 +136,10 @@
         {
             var selectedImage = $("#images").val();
             var baseUrl = '<?php echo base_url(); ?>';
+            var imageUrl = baseUrl + 'assets/uploads/' + selectedImage;
             
             $('#wysiwyg').wysiwyg('destroy');
-            $('#wysiwyg').val($('#wysiwyg').val() + '<img style="width: 100%;" src="' + baseUrl + 'assets/uploads/' + selectedImage + '" />');
+            $('#wysiwyg').val($('#wysiwyg').val() + '<a href="'+imageUrl+'" rel="lytebox[image]"><img style="width: 100%;" src="' + imageUrl + '" /></a>');
             $('#wysiwyg').wysiwyg({
                 controls: {
                     insertImage: { visible : false }

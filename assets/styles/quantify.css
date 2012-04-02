@@ -111,10 +111,17 @@ body
 #bottom
 {
     background-color: #fff;
-    font-size: 0.7em;
+    font-size: 0.9em;
     text-align: center;
     border: 1px solid #D0D0D0;
     -webkit-box-shadow: 0 0 8px #D0D0D0;
+}
+
+#bottom-bottom
+{
+    padding-top: 2px;
+    font-size: 0.9em;
+    text-align: center;
 }
 
 .style-editor

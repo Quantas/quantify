@@ -18,6 +18,15 @@
  * Quantify. If not, see http://www.gnu.org/licenses/.
  */
 ?>
+<script>
+    function doConfirm(entry)
+    {
+        if(confirm("Are you sure you want to delete " + entry + "?"))
+            return true;
+        else
+            return false;
+    }
+</script>
 <table id="admin-config">
     <tr>
         <th>
@@ -51,7 +60,7 @@ foreach($entries as $entry)
             <?php echo anchor('story/view/'.$entry['entry_id'], '[V]'); ?>
         </td>
         <td>
-            <?php echo anchor('entry/deleteEntry/'.$entry['entry_id'], '[D]'); ?>
+            <a href="entry/deleteEntry/<?php echo $entry['entry_id']; ?>" onClick="return doConfirm('<?php echo $entry['entry_title']; ?>');">[D]</a>
         </td>
         <td>
             <?php echo $entry['user_display_name']; ?>

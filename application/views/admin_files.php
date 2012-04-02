@@ -18,6 +18,15 @@
  * Quantify. If not, see http://www.gnu.org/licenses/.
  */
 ?>
+<script>
+    function doConfirm(file)
+    {
+        if(confirm("Are you sure you want to delete " + file + "?"))
+            return true;
+        else
+            return false;
+    }
+</script>
 <table id="admin-config">
     <tr>
         <th>
@@ -36,7 +45,7 @@ foreach($files as $file)
             <?php echo $file; ?>
         </td>
         <td>
-            <?php echo anchor('admin/deleteFile/' . $file, '[D]'); ?> 
+            <a href="deleteFile/<?php echo $file; ?>" onClick="return doConfirm('<?php echo $file; ?>');">[D]</a>
         </td>
     </tr>
 <?php

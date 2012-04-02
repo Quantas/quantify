@@ -18,6 +18,15 @@
  * Quantify. If not, see http://www.gnu.org/licenses/.
  */
 ?>
+<script>
+    function doConfirm(user)
+    {
+        if(confirm("Are you sure you want to delete " + user + "?"))
+            return true;
+        else
+            return false;
+    }
+</script>
 <table id="admin-config">
     <tr>
         <th>
@@ -63,7 +72,7 @@ foreach($users as $user)
             ?> 
         </td>
         <td>
-            <?php echo anchor('admin/deleteUser/'.$user->getUserId(), '[D]') . ' ' . anchor('admin/editUser/' . $user->getUserId(), '[E]'); ?>
+            <a href="deleteUser/<?php echo $user->getUserId(); ?>" onClick="return doConfirm('<?php echo $user->getUserName(); ?>');">[D]</a> <?php echo anchor('admin/editUser/' . $user->getUserId(), '[E]'); ?>
         </td>
     </tr>
 <?php

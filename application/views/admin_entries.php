@@ -60,7 +60,7 @@ foreach($entries as $entry)
             <?php echo anchor('story/view/'.$entry['entry_id'], '[V]'); ?>
         </td>
         <td>
-            <a href="entry/deleteEntry/<?php echo $entry['entry_id']; ?>" onClick="return doConfirm('<?php echo $entry['entry_title']; ?>');">[D]</a>
+            <a href="<?php echo base_url(); ?>entry/deleteEntry/<?php echo $entry['entry_id']; ?>" onClick="return doConfirm('<?php echo $entry['entry_title']; ?>');">[D]</a>
         </td>
         <td>
             <?php echo $entry['user_display_name']; ?>

@@ -47,7 +47,7 @@ class Register extends CI_Controller
     {
             if ($this->_submit_validate() === FALSE) 
             {
-                $this->users();
+                $this->signupForm();
                 return;
             }
 

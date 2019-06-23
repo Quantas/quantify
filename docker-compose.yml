@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+
+  db:
+    image: mysql:5.6
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
+    networks:
+      - quantify
+    environment:
+      MYSQL_USER: quantify
+      MYSQL_PASSWORD: quantify
+      MYSQL_DATABASE: quantify
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+
+  web:
+    image: quantify:latest
+    build:
+      context: .
+    volumes:
+      - upload-data:/var/www/html/quantify/assets/uploads
+    restart: always
+    networks:
+      - quantify
+    ports:
+      - 80:80
+    links:
+      - "db:database"
+
+networks:
+  quantify:
+
+volumes:
+  db-data:
+  upload-data:

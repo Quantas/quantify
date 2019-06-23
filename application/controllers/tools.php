@@ -56,9 +56,20 @@ class Tools extends CI_Controller
     {
         try
         {
-            $this->_publishSchema();
-            $this->_addDefaultData();
-            echo 'Good to go';
+            try
+            {
+                if (!empty(getConfigArray()))
+                {
+                    echo 'Already setup!';
+                }
+            }
+            catch(Exception $e)
+            {
+                // This is a hack, only run once anyway...
+                $this->_publishSchema();
+                $this->_addDefaultData();
+                echo 'Good to go';
+            }
         }
         catch(Exception $e)
         {
@@ -116,17 +127,27 @@ class Tools extends CI_Controller
         $config6->setConfigValue('1');
         $em->persist($config6);
         
-        $perm = new Permission;
-        $perm->setPermissionLevel(0);
-        $perm->setPermissionName('Administrator');
-        $em->persist($perm);
+        $adminPerm = new Permission;
+        $adminPerm->setPermissionLevel(0);
+        $adminPerm->setPermissionName('Administrator');
+        $em->persist($adminPerm);
+
+        $editorPerm = new Permission;
+        $editorPerm->setPermissionLevel(1);
+        $editorPerm->setPermissionName('Editor');
+        $em->persist($editorPerm);
         
+        $userPerm = new Permission;
+        $userPerm->setPermissionLevel(2);
+        $userPerm->setPermissionName('User');
+        $em->persist($userPerm);
+
         $user = new User;
         $user->setUserName('admin');
         $user->setUserPassword('password');
         $user->setUserDisplayName('Admin');
         $user->setUserEmail('admin@localhost');
-        $user->setPermission($perm);
+        $user->setPermission($adminPerm);
         $em->persist($user);
         
         $cat = new Category;
@@ -137,6 +158,7 @@ class Tools extends CI_Controller
         $entry->setEntryTitle('First Entry');
         $entry->setEntryContent('My First Article');
         $entry->setEntryTimestamp(new DateTime('now', new DateTimeZone('America/Chicago')));
+        $entry->setEntryCommentsEnabled(1);
         $entry->setUser($user);
         $entry->setCategory($cat);
         $em->persist($entry);

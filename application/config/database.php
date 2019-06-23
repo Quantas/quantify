@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
+$db['default']['hostname'] = 'database';
 $db['default']['username'] = 'quantify';
 $db['default']['password'] = 'quantify';
 $db['default']['database'] = 'quantify';
